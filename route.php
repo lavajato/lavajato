@@ -18,7 +18,7 @@
             $nomeDaAction = "Index";
         }else {
             $nomeDaAction = $path[3];
-        }  
+        }   
     }
     
     $params = array();
