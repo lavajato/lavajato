@@ -2,34 +2,34 @@
 
 namespace senac\lavajato;
 
-include "/controllers/HomeController.php";
-
 class Rotas {
     private $url;
+    private $nomeDaActionAtual;
+    private $nomeDaControllerAtual;
 
     public function __construct() {
-        $this->url = split("/", parse_url($_SERVER["REQUEST_URI"])["path"]);
+        $this->url = explode("/", $_REQUEST["url"]);
     }
 
     public function mapearRotas($controllerPadrao, $actionPadrao) {
-        if (count($this->url) > 1) {
-            $nomeDaController = CONTROLLERS_NAMESPACE;
-            $nomeDaAction = "";
-
-            if (empty($this->url[2])) {
-                $nomeDaController = $nomeDaController . $controllerPadrao;
+        if (count($this->url) > 0) {
+            if (empty($this->url[0])) {
+                $nomeDaController = $controllerPadrao;
             } else {
-                $nomeDaController = $nomeDaController . $this->url[2];
+                $nomeDaController = $this->url[0];
             }
 
-            $nomeDaController = $nomeDaController ."Controller";
-
-            if (empty($this->url[3])) {
-                $nomeDaAction = $actionPadrao;
+            if (empty($this->url[1])) {
+                $this->nomeDaActionAtual = $actionPadrao;
             } else {
-                $nomeDaAction = $this->url[3];
+                $this->nomeDaActionAtual = $this->url[1];
             }
+        } else {
+            $nomeDaController = $nomeDaController.$controllerPadrao;
+            $this->nomeDaActionAtual = $actionPadrao;
         }
+
+        $this->nomeDaControllerAtual = AppConfig::$namespaceDasControllers . $nomeDaController . "Controller"; 
 
         $params = array();
 
@@ -42,19 +42,22 @@ class Rotas {
             $params = $_POST;
         }
 
-        if (class_exists($nomeDaController)) {
-            $controller = new $nomeDaController();
+        include_once "/controllers//" . $nomeDaController . "Controller.php";
 
-            if (method_exists($controller, $nomeDaAction)) {
-                $r = new \ReflectionMethod($nomeDaController, $nomeDaAction);
+        if (class_exists($this->nomeDaControllerAtual)) {
+            
+            $controller = new $this->nomeDaControllerAtual();
+
+            if (method_exists($controller, $this->nomeDaActionAtual)) {
+                $r = new \ReflectionMethod($this->nomeDaControllerAtual, $this->nomeDaActionAtual);
                 $parametrosDaAction = $r->getParameters();
 
                 $r->invokeArgs($controller, $params);
             } else {
-                echo "<h1>404 Not found </h1><p>Nenhuma action encontrada</p>";
+                header($_SERVER["SERVER_PROTOCOL"] . " 500 - Action not found", true, 500);
             }
         } else {
-            echo "<h1> 404 Not Found </h1> <p> Nenhuma controller encontrada </p>";
+            header($_SERVER["SERVER_PROTOCOL"] . " 500 - Controller not found", true, 500);
         }
     }
 }

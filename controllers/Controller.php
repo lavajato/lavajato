@@ -5,7 +5,8 @@ namespace senac\lavajato\controllers;
 use \senac\lavajato\actionResults\View;
 
 abstract class Controller {
-    protected function View($caminhoDaView = null) {
+
+    protected function view($caminhoDaView = null, $viewModel = null) {
         $caminho = "";
 
         if(!isset($caminhoDaView) || empty($caminhoDaView)) {
@@ -19,9 +20,8 @@ abstract class Controller {
             $caminho = $caminhoDaView;
         }
 
-        return new View($caminho);
+        return new View($caminho, $viewModel);
     }
-
 }
 
 ?>

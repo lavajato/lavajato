@@ -10,9 +10,10 @@ require_once "actionResults\View.php";
 require_once "Rotas.php";
 
 class Startup {
-
     public function __construct($rotas) {
-        $rotas->mapearRotas("Home", "Index");
+        AppConfig::definirValoresIniciais();
+
+        $rotas->mapearRotas("Principal", "Index");
     }
 }
 
