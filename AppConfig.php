@@ -21,7 +21,7 @@ class AppConfig {
 
         self::$assets = self::$caminhoRelativo . "\\assets\\";
     }
-
+ 
     public static function pegarAsset($caminho) {
         echo(self::$assets . $caminho); 
     }
