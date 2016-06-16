@@ -15,7 +15,8 @@ ob_start();
                 <h5> Usuários  </h5>
             </div>
             <div class="ibox-content">
-                <?php WebUtils::tabela(new UsuarioViewModel(), array(new UsuarioViewModel("nuin", "huihib", "Laura", "Lusilvio"))); ?>
+                <?php WebUtils::Tabela(new UsuarioViewModel(), array(new UsuarioViewModel(1, "Lucílvio Lima", "lucilvio@gmail.com")), 
+                    array("editar" => WebUtils::PegarRota("/Usuarios/Editar"))); ?>
             </div>
         </div>
     </div>

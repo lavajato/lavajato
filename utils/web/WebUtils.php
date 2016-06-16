@@ -1,48 +1,79 @@
-<?php
+<?php 
 
 namespace senac\lavajato\utils\web;
 
+use \senac\lavajato\AppConfig;
+
 class WebUtils {
 
-    public static function tabela($tipo, $registrosDoTipo) {
-        if(!isset($tipo) || $tipo == null) {
-            $tabela = "<table><thead><tr><th></th></tr></thead><tbody><tr><td> Bind não foi possível." . 
-                      " Verifique o tipo da fonte de dados </td></tr></tbody></table>";
+    public static function ImprimirRota($rota) {
+        echo (AppConfig::$caminhoRelativo . $rota);
+    }
+
+    public static function PegarRota($rota) {
+        return (AppConfig::$caminhoRelativo . $rota);
+    }
+
+    public static function PegarAsset($caminho) {
+        echo(AppConfig::$assets . $caminho); 
+    }
+
+    public static function Tabela($tipo, $registrosDoTipo, $opcoes = null) {
+        if (!isset($tipo) || $tipo == null) {
+            $tabela = "<table><thead><tr><th></th></tr></thead><tbody><tr><td> Bind não foi possível."." Verifique o tipo da fonte de dados </td></tr></tbody></table>";
 
             echo $tabela;
             return;
         }
 
-        $tabela = "<table class='table table-hover'><thead><tr>";
+        $tabela = "<table class='table table-hover table-striped'><thead><tr>";
 
-        $reflexaoDaClasse =  new \ReflectionClass($tipo);
+        $reflexaoDaClasse = new\ReflectionClass($tipo);
         $propriedadesDoTipo = $reflexaoDaClasse->getProperties();
 
-        foreach ($propriedadesDoTipo as $propriedade) {
-            $tabela = $tabela . "<th>" . $propriedade->getName() . "</th>";
+        foreach($propriedadesDoTipo as $propriedade) {
+            $tabela = $tabela."<th>".$propriedade->getName()."</th>";
         }
 
-        $tabela = $tabela . "</tr></thead><tbody>";
+        if ($opcoes != null && !empty($opcoes)) {
+            foreach($opcoes as $opcao) {
+                $tabela = $tabela."<th> op </th>";
+            }
+        }
 
-        if(!isset($registrosDoTipo) || $registrosDoTipo == null || empty($registrosDoTipo)) {
-            $tabela = $tabela . "<tr><td> Nenhum registro encontrado. </tr></td>";
-            $tabela = $tabela . "</tbody></table>";
+        $tabela = $tabela."</tr></thead><tbody>";
+
+        if (!isset($registrosDoTipo) || $registrosDoTipo == null || empty($registrosDoTipo)) {
+            $tabela = $tabela."<tr><td> Nenhum registro encontrado. </tr></td>";
+            $tabela = $tabela."</tbody></table>";
 
             echo $tabela;
             return;
         }
 
         foreach($registrosDoTipo as $registro) {
-            $reflexaoDoObjeto = new \ReflectionClass($registro);
+            $reflexaoDoObjeto = new\ReflectionClass($registro);
             $propriedades = $reflexaoDoObjeto->getProperties();
-            $tabela = $tabela . "<tr>";
-            foreach ($propriedades as $propriedade) {
-                $tabela = $tabela . "<td>" . $propriedade->getValue($registro) . "</td>"; 
+            $tabela = $tabela."<tr>";
+
+            foreach($propriedades as $propriedade) {
+                $propriedade->setAccessible(true);
+                $tabela = $tabela."<td>".$propriedade->getValue($registro)."</td>";
+
             }
-            $tabela = $tabela . "</tr>";
+
+            if ($opcoes != null && !empty($opcoes)) {
+                foreach($opcoes as $nome => $valor) {
+                    $propriedade = $reflexaoDoObjeto->getProperty("id");
+                    $propriedade->setAccessible(true);
+                    $tabela = $tabela."<td> <a href='" . $valor ."/" . $propriedade->getValue($registro) . "'>". $nome ." </td>";
+                }
+            }
+
+            $tabela = $tabela."</tr>";
         }
 
-        $tabela = $tabela . "</tbody></table>";
+        $tabela = $tabela."</tbody></table>";
 
         echo $tabela;
     }
@@ -108,4 +139,3 @@ class WebUtils {
 //             </div>
 
 ?>
-

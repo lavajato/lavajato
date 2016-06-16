@@ -1,4 +1,4 @@
-<?php use\senac\lavajato\AppConfig; ?>
+<?php use\senac\lavajato\utils\web\WebUtils; ?>
 
 <!DOCTYPE html>
 <html>
@@ -9,11 +9,11 @@
 
     <title>Lava Jato - <?php echo isset($titulo) ? $titulo : "" ?> </title>
 
-    <link href="<?php AppConfig::pegarAsset('css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?php AppConfig::pegarAsset('css/font-awesome.min.css') ?>" rel="stylesheet">
+    <link href="<?php WebUtils::PegarAsset('css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php WebUtils::PegarAsset('css/font-awesome.min.css') ?>" rel="stylesheet">
 
-    <link href="<?php AppConfig::pegarAsset('css/animate.css') ?>" rel="stylesheet">
-    <link href="<?php AppConfig::pegarAsset('css/style.min.css') ?>" rel="stylesheet">
+    <link href="<?php WebUtils::PegarAsset('css/animate.css') ?>" rel="stylesheet">
+    <link href="<?php WebUtils::PegarAsset('css/style.min.css') ?>" rel="stylesheet">
 
 </head>
 
@@ -32,13 +32,13 @@
         </div>
     </div>
 
-    <script src="<?php AppConfig::pegarAsset('js/jquery-2.1.1.js') ?>"></script>
-    <script src="<?php AppConfig::pegarAsset('js/bootstrap.min.js') ?>"></script>
-    <script src="<?php AppConfig::pegarAsset('js/plugins/metisMenu/jquery.metisMenu.js') ?>"></script>
-    <script src="<?php AppConfig::pegarAsset('js/plugins/slimscroll/jquery.slimscroll.min.js') ?>"></script>
+    <script src="<?php WebUtils::PegarAsset('js/jquery-2.1.1.js') ?>"></script>
+    <script src="<?php WebUtils::PegarAsset('js/bootstrap.min.js') ?>"></script>
+    <script src="<?php WebUtils::PegarAsset('js/plugins/metisMenu/jquery.metisMenu.js') ?>"></script>
+    <script src="<?php WebUtils::PegarAsset('js/plugins/slimscroll/jquery.slimscroll.min.js') ?>"></script>
 
-    <script src="<?php AppConfig::pegarAsset('js/inspinia.js') ?>"></script>
-    <script src="<?php AppConfig::pegarAsset('js/plugins/pace/pace.min.js') ?>"></script>
+    <script src="<?php WebUtils::PegarAsset('js/inspinia.js') ?>"></script>
+    <script src="<?php WebUtils::PegarAsset('js/plugins/pace/pace.min.js') ?>"></script>
 </body>
 
 </html>

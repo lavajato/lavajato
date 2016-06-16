@@ -1,11 +1,11 @@
-<?php use\senac\lavajato\AppConfig; ?>
+<?php use\senac\lavajato\utils\web\WebUtils; ?>
 
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element"> <span>
-	                <img alt="image" class="img-circle" src="<?php AppConfig::pegarAsset('img/profile_small.jpg') ?>" />
+	                <img alt="image" class="img-circle" src="<?php WebUtils::PegarAsset('img/profile_small.jpg') ?>" />
                              </span>
                     <a href="#">
                         <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Lucílvio Lima</strong>
@@ -18,11 +18,11 @@
             </li>
 
             <li>
-                <a href="<?php AppConfig::rota('/Principal'); ?>"><i class="fa fa-home"></i> <span class="nav-label"> Principal </span></a>
+                <a href="<?php WebUtils::ImprimirRota('/Principal'); ?>"><i class="fa fa-home"></i> <span class="nav-label"> Principal </span></a>
             </li>
 
             <li>
-                <a href="<?php AppConfig::rota('/Usuarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Usuários </span></a>
+                <a href="<?php WebUtils::ImprimirRota('/Usuarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Usuários </span></a>
             </li>
 
             <li>

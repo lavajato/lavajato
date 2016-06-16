@@ -3,6 +3,7 @@
 namespace senac\lavajato\controllers;
 
 use \senac\lavajato\actionResults\View;
+use \senac\lavajato\actionResults\Redirecionar;
 
 abstract class Controller {
 
@@ -21,6 +22,10 @@ abstract class Controller {
         }
 
         return new View($caminho, $viewModel);
+    }
+
+    protected function redirecionar($rota) {
+        return new Redirecionar($rota);
     }
 }
 

@@ -9,8 +9,7 @@ class AppConfig {
     public static $namespaceDasControllers;
     public static $caminhoRelativo;
     public static $versao;
-
-    private static $assets;
+    public static $assets;
 
     public static function definirValoresIniciais() {
         self::$caminhoDasViews = getcwd() . "\\views\\";
@@ -21,14 +20,8 @@ class AppConfig {
 
         self::$assets = self::$caminhoRelativo . "\\assets\\";
     }
- 
-    public static function pegarAsset($caminho) {
-        echo(self::$assets . $caminho); 
-    }
-
-    public static function rota($rota) {
-        echo(self::$caminhoRelativo . $rota);
-    }
 }
+
+AppConfig::definirValoresIniciais();
 
 ?>
