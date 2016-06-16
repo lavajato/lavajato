@@ -37,7 +37,7 @@ class WebUtils {
 
         if ($opcoes != null && !empty($opcoes)) {
             foreach($opcoes as $opcao) {
-                $tabela = $tabela."<th> op </th>";
+                $tabela = $tabela."<th></th>";
             }
         }
 
@@ -66,7 +66,7 @@ class WebUtils {
                 foreach($opcoes as $nome => $valor) {
                     $propriedade = $reflexaoDoObjeto->getProperty("id");
                     $propriedade->setAccessible(true);
-                    $tabela = $tabela."<td> <a href='" . $valor ."/" . $propriedade->getValue($registro) . "'>". $nome ." </td>";
+                    $tabela = $tabela."<td> <a href='" . $valor ."/" . $propriedade->getValue($registro) . "'> <strong>". $nome ."</strong> </td>";
                 }
             }
 

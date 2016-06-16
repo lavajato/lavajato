@@ -7,7 +7,7 @@ use \senac\lavajato\actionResults\Redirecionar;
 
 abstract class Controller {
 
-    protected function view($caminhoDaView = null, $viewModel = null) {
+    protected function view($viewModel = null, $caminhoDaView = null) {
         $caminho = "";
 
         if(!isset($caminhoDaView) || empty($caminhoDaView)) {
@@ -21,7 +21,7 @@ abstract class Controller {
             $caminho = $caminhoDaView;
         }
 
-        return new View($caminho, $viewModel);
+        return new View($viewModel, $caminho);
     }
 
     protected function redirecionar($rota) {

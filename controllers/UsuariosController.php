@@ -12,7 +12,6 @@ class UsuariosController extends Controller {
     }
 
     public function editar($id = null) {
-
         if($id == null)
             return parent::redirecionar("/Usuarios");
 

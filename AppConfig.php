@@ -12,13 +12,13 @@ class AppConfig {
     public static $assets;
 
     public static function definirValoresIniciais() {
-        self::$caminhoDasViews = getcwd() . "\\views\\";
-        self::$caminhoDasControllers = getcwd() . "\\controllers\\";
+        self::$caminhoDasViews = getcwd() . "\app\\views\\";
+        self::$caminhoDasControllers = getcwd() . "\app\\controllers\\";
         self::$namespaceDasControllers = "senac\\lavajato\\controllers\\";
         self::$caminhoRelativo = "\lavajato";
         self::$versao = "1.0";
 
-        self::$assets = self::$caminhoRelativo . "\\assets\\";
+        self::$assets = self::$caminhoRelativo . "\app\\assets\\";
     }
 }
 

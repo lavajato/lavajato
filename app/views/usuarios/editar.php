@@ -8,6 +8,7 @@ $iconeDoFormulario = "fa-users";
 ob_start();
 ?>
 
+<h3> <?php echo $model->pegarNome(); ?> </h3>
 
 <?php 
 $conteudo = ob_get_clean();

@@ -46,7 +46,7 @@ class Rotas {
             array_push($params, $this->url[$i]);
         }
 
-        include_once "/controllers//" . $nomeDaController . "Controller.php";
+        include_once AppConfig::$caminhoDasControllers  . $nomeDaController . "Controller.php";
 
         if (class_exists($this->nomeDaControllerAtual)) {
             
