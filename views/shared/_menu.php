@@ -22,7 +22,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-user"></i> <span class="nav-label"> Usuários </span></a>
+                <a href="<?php AppConfig::rota('/Usuarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Usuários </span></a>
             </li>
 
             <li>

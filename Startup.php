@@ -9,6 +9,10 @@ require_once "actionResults\View.php";
 
 require_once "Rotas.php";
 
+require_once "utils\web\WebUtils.php";
+
+require_once "viewModels\UsuarioViewModel.php";
+
 class Startup {
     public function __construct($rotas) {
         AppConfig::definirValoresIniciais();
