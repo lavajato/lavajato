@@ -1,0 +1,44 @@
+<?php use senac\framework\views\ViewTags ?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lava Jato - <?php echo isset($GLOBALS["titulo"]) ? $GLOBALS["titulo"] : "" ?> </title>
+
+    <link href="/lavajato/app/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lavajato/app/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/lavajato/app/assets/css/animate.css" rel="stylesheet">
+    <link href="/lavajato/app/assets/css/style.min.css" rel="stylesheet">
+</head>
+
+<body class="">
+    <div id="wrapper">
+        <?php include_once "_menu.html" ?>
+
+        <div id="page-wrapper" class="gray-bg">
+            <?php include_once "_cabecalhoFormulario.html" ?>
+
+            <div class="wrapper wrapper-content">
+                <?php ViewTags::bloco("conteudo") ?>
+            </div>
+
+            <?php include_once "_rodape.html" ?>
+        </div>
+    </div>
+
+    <script src="/lavajato/app/assets/js/jquery-2.1.1.js"></script>
+    <script src="/lavajato/app/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/lavajato/app/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="/lavajato/app/assets/js/inspinia.js"></script>
+    <script src="/lavajato/app/assets/js/plugins/pace/pace.min.js"></script>
+
+    <script src="/lavajato/app/assets/js/app/commons.js"></script>
+</body>
+
+</html>

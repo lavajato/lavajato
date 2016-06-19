@@ -2,34 +2,26 @@
 
 namespace senac\lavajato;
 
-class AppConfig {
+use senac\framework\Config;
 
-    public static $caminhoDasViews;
-    public static $caminhoDasControllers;
-    public static $namespaceDasControllers;
-    public static $caminhoRelativo;
+class AppConfig extends Config {
     public static $versao;
-    public static $assets;
 
     public static $stringDeConexao;
     public static $usuarioDoBanco;
     public static $senhaDoBanco;
 
-    public static function definirValoresIniciais() {
+    public static function iniciarValores() {
         self::$caminhoDasViews = getcwd() . "\app\\views\\";
         self::$caminhoDasControllers = getcwd() . "\app\\controllers\\";
         self::$namespaceDasControllers = "senac\\lavajato\\controllers\\";
-        self::$caminhoRelativo = "\lavajato";
-        self::$versao = "1.0";
 
-        self::$assets = self::$caminhoRelativo . "\app\\assets\\";
+        self::$versao = "1.0";
 
         self::$stringDeConexao = "mysql:host=localhost;dbname=lavajato";
         self::$usuarioDoBanco = "root";
         self::$senhaDoBanco = "root";
     }
 }
-
-AppConfig::definirValoresIniciais();
 
 ?>

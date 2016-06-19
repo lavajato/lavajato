@@ -1,9 +1,9 @@
 <?php
 
-namespace senac\lavajato\controllers;
+namespace senac\framework\controllers;
 
-use \senac\lavajato\actionResults\View;
-use \senac\lavajato\actionResults\Redirecionar;
+use \senac\framework\actionResults\View;
+use \senac\framework\actionResults\Redirecionar;
 
 abstract class Controller {
 
@@ -13,7 +13,7 @@ abstract class Controller {
         if(!isset($caminhoDaView) || empty($caminhoDaView)) {
             $ref = new \ReflectionClass($this);
             $pasta = str_replace("Controller", "", $ref->getShortName());
-            $view = debug_backtrace()[1]['function'] . ".php";
+            $view = debug_backtrace()[1]['function'] . ".html";
 
             $caminho = $pasta . "\\" . $view;
         }

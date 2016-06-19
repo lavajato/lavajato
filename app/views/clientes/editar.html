@@ -1,15 +1,15 @@
-
-<?php use senac\lavajato\utils\web\WebUtils; ?> 
+<?php use senac\framework\views\ViewTags; ?> 
 <?php use senac\lavajato\viewModels\ClienteViewModel; ?> 
 
 <?php 
-$titulo = "Cadastrar Novo Cliente";
-$tituloDoFormulario = "Cadastrar Novo Cliente";
-$iconeDoFormulario = "fa-users";
-ob_start();
+$GLOBALS["titulo"] = "Editar Cliente";
+$GLOBALS["tituloDoFormulario"] = "Editar Cliente";
+$GLOBALS["iconeDoFormulario"] = "fa-users";
+
+ViewTags::iniciarBloco("conteudo");
 ?>
 
-<?php WebUtils::iniciarFormulario('ninonio', 'iojionno') ?>
+<form role="form">
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
@@ -20,20 +20,20 @@ ob_start();
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="txt-nome-cliente"> Nome </label>
-                                <input type="text" placeholder="Nome do Cliente" id="txt-nome-cliente" class="form-control">
+                                <label for="txt-nome-usuario"> Nome </label>
+                                <input type="text" placeholder="Nome do cliente" id="txt-nome-usuario" class="form-control" value="<?php echo $model->nome ?>">
                             </div>
 
                             <div class="form-group">
-                                <label for="txt-senha-cliente"> Senha </label>
-                                <input type="password" placeholder="Senha do cliente" id="txt-senha-cliente" class="form-control">
+                                <label for="txt-senha-usuario"> Senha </label>
+                                <input type="text" placeholder="Senha do usuário" id="txt-senha-usuario" class="form-control" value="<?php echo $model->senha ?>">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="txt-email-cliente">Email</label>
-                                <input type="email" placeholder="Email do Cliente" id="txt-email-cliente" class="form-control">
+                                <label for="txt-email-usuario">Email</label>
+                                <input type="email" placeholder="Email do usuário" id="txt-email-usuario" class="form-control" value="<?php echo $model->email ?>">
                             </div>
                         </div>
                     </div>
@@ -47,13 +47,13 @@ ob_start();
                 <input class="btn btn-white btn-voltar" type="button" class="btn btn-white" value="Voltar" />
             </div>
             <div style="float:right">
-                <input type="submit" class="btn btn-primary" value="Cadastrar" />
+                <input type="button" class="btn btn-primary" value="Alterar" />
             </div>
         </div>
     </div>
-<?php WebUtils::terminarFormulario() ?>
+</form>
 
 <?php 
-$conteudo = ob_get_clean();
-include_once("\\..\\shared\\_layout.php");
+ViewTags::terminarBloco("conteudo"); 
+ViewTags::layout(__DIR__ . "..\\..\\shared\\_layout.html");
 ?>

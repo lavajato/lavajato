@@ -1,6 +1,8 @@
 <?php
  
- namespace senac\lavajato\controllers;
+namespace senac\lavajato\controllers;
+
+use senac\framework\controllers\Controller;
 
 class PrincipalController extends Controller {
     public function __construct() {

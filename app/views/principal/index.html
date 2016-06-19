@@ -1,0 +1,15 @@
+<?php use senac\framework\views\ViewTags; ?>
+
+<?php 
+$GLOBALS["titulo"] = "Principal";
+$GLOBALS["tituloDoFormulario"] = "Principal";
+$GLOBALS["iconeDoFormulario"] = "fa-home";
+
+ViewTags::iniciarBloco("conteudo");
+?>
+
+<?php 
+ViewTags::terminarBloco("conteudo"); 
+ViewTags::layout(__DIR__ . "..\\..\\shared\\_layout.html");
+
+?>

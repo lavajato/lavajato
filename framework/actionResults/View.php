@@ -1,15 +1,15 @@
 <?php 
 
-namespace senac\lavajato\actionResults;
+namespace senac\framework\actionResults;
 
-use \senac\lavajato\AppConfig;
+use \senac\framework\Config;
 
 class View implements IActionResult {
     public function __construct($viewModel, $view) {
         
         $model = $viewModel;
         
-        require_once AppConfig::$caminhoDasViews . "\\" . $view;
+        require_once Config::$caminhoDasViews . "\\" . $view;
     }
 }
 

@@ -1,11 +1,11 @@
-<?php use\senac\lavajato\utils\web\WebUtils; ?>
+<?php use \senac\framework\views\ViewTags; ?>
 
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element"> <span>
-	                <img alt="image" class="img-circle" src="<?php WebUtils::PegarAsset('img/profile_small.jpg') ?>" />
+	                <img alt="image" class="img-circle" src="/lavajato/app/assets/img/profile_small.jpg" />
                              </span>
                     <a href="#">
                         <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Lucílvio Lima</strong>
@@ -18,15 +18,15 @@
             </li>
 
             <li>
-                <a href="<?php WebUtils::ImprimirRota('/Principal'); ?>"><i class="fa fa-home"></i> <span class="nav-label"> Principal </span></a>
+                <a href="<?php ViewTags::actionLink('/lavajato/Principal'); ?>"><i class="fa fa-home"></i> <span class="nav-label"> Principal </span></a>
             </li>
 
             <li>
-                <a href="<?php WebUtils::ImprimirRota('/Clientes'); ?>"><i class="fa fa-users"></i> <span class="nav-label"> Clientes </span></a>
+                <a href="<?php ViewTags::actionLink('/lavajato/Clientes'); ?>"><i class="fa fa-users"></i> <span class="nav-label"> Clientes </span></a>
             </li>
 
             <li>
-                <a href="<?php WebUtils::ImprimirRota('/Funcionarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Funcionários </span></a>
+                <a href="<?php ViewTags::actionLink('Funcionarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Funcionários </span></a>
             </li>
 
             <li>

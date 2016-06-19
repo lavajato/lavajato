@@ -2,6 +2,8 @@
  
 namespace senac\lavajato\controllers;
 
+use senac\framework\controllers\Controller;
+
 use senac\lavajato\utils\dados\DadosUtil;
 
 use senac\lavajato\viewModels\ClienteViewModel;
