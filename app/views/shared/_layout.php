@@ -39,6 +39,8 @@
 
     <script src="<?php WebUtils::PegarAsset('js/inspinia.js') ?>"></script>
     <script src="<?php WebUtils::PegarAsset('js/plugins/pace/pace.min.js') ?>"></script>
+
+    <script src="<?php WebUtils::PegarAsset('js/app/commons.js') ?>"></script>
 </body>
 
 </html>

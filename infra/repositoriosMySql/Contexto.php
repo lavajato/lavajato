@@ -2,29 +2,29 @@
 
 namespace senac\lavajato\infra\repositoriosMySql;
 
-use senac\lavajato\dominio\entidades\Usuario;
+use senac\lavajato\AppConfig;
+use senac\lavajato\dominio\entidades\Cliente;
 
 class Contexto {
 
-    //private $con;
-    private $usuarios;
+    private $con;
+    private $clientes;
 
     public function __construct() {
-        //$this->con = new \PDO("mysql:host=localhost;dbname=lavajato", "root", "root");
-        $this->usuarios = Array(
-            new Usuario(1, "Lucílvio Lima", "lucilvio@gmail.com"),
-            new Usuario(2, "João Merli", "joaoa-merly@gmail.com"),
-            new Usuario(3, "Leila Arantes", "larantes@gmail.com"),
-            new Usuario(4, "Rodrigo Beça", "beçça@gmail.com")
-        );
+        try {
+            $this->con = new \PDO(AppConfig::$stringDeConexao, AppConfig::$usuarioDoBanco, AppConfig::$senhaDoBanco);
+        }
+        catch(PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
-    public function usuarios() {
-        return $this->usuarios;
+    public function conexao() {
+        return $this->con;
     }
 
     public function __destruct() {
-        //$this->con = null;
+        $this->con = null;
     }
 }
 

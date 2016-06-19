@@ -22,11 +22,11 @@
             </li>
 
             <li>
-                <a href="<?php WebUtils::ImprimirRota('/Usuarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Usuários </span></a>
+                <a href="<?php WebUtils::ImprimirRota('/Clientes'); ?>"><i class="fa fa-users"></i> <span class="nav-label"> Clientes </span></a>
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-users"></i> <span class="nav-label"> Clientes </span></a>
+                <a href="<?php WebUtils::ImprimirRota('/Funcionarios'); ?>"><i class="fa fa-user"></i> <span class="nav-label"> Funcionários </span></a>
             </li>
 
             <li>

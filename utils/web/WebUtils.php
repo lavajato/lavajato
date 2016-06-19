@@ -28,7 +28,7 @@ class WebUtils {
 
         $tabela = "<table class='table table-hover table-striped'><thead><tr>";
 
-        $reflexaoDaClasse = new\ReflectionClass($tipo);
+        $reflexaoDaClasse = new \ReflectionClass($tipo);
         $propriedadesDoTipo = $reflexaoDaClasse->getProperties();
 
         foreach($propriedadesDoTipo as $propriedade) {
@@ -66,7 +66,7 @@ class WebUtils {
                 foreach($opcoes as $nome => $valor) {
                     $propriedade = $reflexaoDoObjeto->getProperty("id");
                     $propriedade->setAccessible(true);
-                    $tabela = $tabela."<td> <a href='" . $valor ."/" . $propriedade->getValue($registro) . "'> <strong>". $nome ."</strong> </td>";
+                    $tabela = $tabela."<td> <a href='" . $valor ."/" . $propriedade->getValue($registro) . "'> <span class='label label-primary'>". $nome ."</span> </td>";
                 }
             }
 
@@ -76,6 +76,18 @@ class WebUtils {
         $tabela = $tabela."</tbody></table>";
 
         echo $tabela;
+    }
+
+    public static function iniciarFormulario($controller, $action) {
+        $formulario = "<form action='FormRedirect.php' method='post'>";
+        $formulario = $formulario . "<input type='hidden' name='controller' value='$controller' />";
+        $formulario = $formulario . "<input type='hidden' name='action' value='$action' />";
+
+        echo $formulario;
+    } 
+
+    public static function terminarFormulario() {
+        echo "</form>";
     }
 
 }

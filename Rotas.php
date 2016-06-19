@@ -33,14 +33,14 @@ class Rotas {
 
         $params = array();
 
-        // if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        //     $query = $_GET;
-        //     foreach($query as $key => $value) {
-        //         if ($key != "url") $params[] = $value;
-        //     }
-        // } else {
-        //     $params = $_POST;
-        // }
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $query = $_GET;
+            foreach($query as $key => $value) {
+                if ($key != "url") $params[] = $value;
+            }
+        } else {
+            $params = $_POST;
+        }
 
         for($i = 2; $i < count($this->url); $i++) {
             array_push($params, $this->url[$i]);

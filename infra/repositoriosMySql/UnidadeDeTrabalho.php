@@ -14,8 +14,8 @@ class UnidadeDeTrabalho implements IUnidadeDeTrabalho {
     }
 
     public function pegarRepositorio($nomeDoRepositorio) {
-        if($nomeDoRepositorio == "RepositorioDeUsuarios")
-            return new RepositorioDeUsuarios($this->contexto);
+        if($nomeDoRepositorio == "RepositorioDeClientes")
+            return new RepositorioDeClientes($this->contexto);
     }
 }
 
