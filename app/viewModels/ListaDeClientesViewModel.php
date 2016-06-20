@@ -2,7 +2,7 @@
 
 namespace senac\lavajato\viewModels;
 
-use senac\lavajato\utils\dados\DadosUtil;
+use senac\framework\utils\DadosUtil;
 
 class ListaDeClientesViewModel {
 

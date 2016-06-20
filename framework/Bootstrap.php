@@ -11,7 +11,7 @@ require_once "framework\\actionResults\Redirecionar.php";
 
 require_once "framework\\Rotas.php";
 
-require_once "framework\\utils\\WebUtils.php";
+require_once "framework\\utils\\DadosUtil.php";
 
 require_once "framework\\views\ViewTags.php";
 

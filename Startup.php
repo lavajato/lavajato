@@ -6,8 +6,6 @@ require_once "framework\\Bootstrap.php";
 
 require_once "AppConfig.php";
 
-require_once "utils\dados\DadosUtil.php";
-
 require_once "app\\viewModels\ClienteViewModel.php";
 require_once "app\\viewModels\ClienteDaListaViewModel.php";
 require_once "app\\viewModels\ListaDeClientesViewModel.php";
@@ -28,7 +26,7 @@ use senac\framework\Rotas;
 class Startup {
     public function __construct($rotas) {
         AppConfig::iniciarValores();
-        $rotas->mapearRotas("Principal", "Index");
+        $rotas->interceptarRotas("Principal", "Index");
     }
 }
 

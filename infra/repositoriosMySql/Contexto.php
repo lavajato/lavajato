@@ -13,6 +13,7 @@ class Contexto {
     public function __construct() {
         try {
             $this->con = new \PDO(AppConfig::$stringDeConexao, AppConfig::$usuarioDoBanco, AppConfig::$senhaDoBanco);
+            $this->con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
         }
         catch(PDOException $e) {
             echo $e->getMessage();

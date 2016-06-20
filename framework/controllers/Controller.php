@@ -24,8 +24,8 @@ abstract class Controller {
         return new View($viewModel, $caminho);
     }
 
-    protected function redirecionar($rota) {
-        return new Redirecionar($rota);
+    protected function redirecionar($rota, $mensagem = null, $tipoDeRetorno = null) {
+        return new Redirecionar($rota, $mensagem, $tipoDeRetorno);
     }
 }
 

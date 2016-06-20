@@ -2,17 +2,14 @@
 <?php use senac\lavajato\viewModels\ClienteViewModel; ?>
 
 <?php 
-$GLOBALS["titulo"] = "Editar Cliente";
-$GLOBALS["tituloDoFormulario"] = "Editar Cliente";
+$GLOBALS["titulo"] = "Cadastrar Novo Cliente";
+$GLOBALS["tituloDoFormulario"] = "Cadastrar Novo Cliente";
 $GLOBALS["iconeDoFormulario"] = "fa-users";
 
 ViewTags::iniciarBloco("conteudo");
 ?>
 
-<form action="/lavajato/clientes/editarDados" method="POST">
-    <input type="hidden" name="id" value="<?php echo $model->id ?>" />
-    <input type="hidden" name="idUsuario" value="<?php echo $model->idUsuario ?>" />
-
+<form action="/lavajato/Clientes/Cadastrar" method="POST">
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
@@ -24,19 +21,14 @@ ViewTags::iniciarBloco("conteudo");
                         <div class="col-lg-8">
                             <div class="form-group">
                                 <label for="txt-nome-cliente"> Nome </label>
-                                <input type="text" placeholder="Nome do Cliente" name="nome" class="form-control" value="<?php echo $model->nome ?>" required>
+                                <input type="text" placeholder="Nome do Cliente" name="nome" class="form-control" required>
                             </div>
                         </div>
-                        <div class="col-lg-2">
+
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="txt-email-cliente">Rg</label>
-                                <input type="text" placeholder="RG do Cliente" name="rg" class="form-control" value="<?php echo $model->rg ?>" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-2">
-                            <label>Ativo?</label>
-                            <div class="form-group">
-                                <input type="checkbox" name="ativo" class="checkbox;" <?php echo $model->ativo == '1' ? 'checked' : '' ?>>
+                                <input type="text" placeholder="RG do Cliente" name="rg" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -45,7 +37,7 @@ ViewTags::iniciarBloco("conteudo");
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="txt-email-cliente">Email</label>
-                                <input type="email" placeholder="Email do Cliente" name="email" class="form-control" value="<?php echo $model->email ?>"  required>
+                                <input type="email" placeholder="Email do Cliente" name="email" class="form-control" required>
                             </div>
                         </div>
 
@@ -59,14 +51,14 @@ ViewTags::iniciarBloco("conteudo");
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label for="txt-email-cliente">Telefone </label>
-                                <input type="text" placeholder="Email do Cliente" name="telefone" class="form-control phone" value="<?php echo $model->telefone ?>"  required>
+                                <input type="text" placeholder="Email do Cliente" name="telefone" class="form-control phone" required>
                             </div>
                         </div>
 
                         <div class="col-lg-2">
                             <label>Receber SMS?</label>
                             <div class="form-group">
-                                <input type="checkbox" name="receberSms" class="checkbox;" <?php echo $model->receberSms == '1' ? 'checked' : '' ?>>
+                                <input type="checkbox" placeholder="Email do Cliente" name="receberSms" class="checkbox;">
                             </div>
                         </div>
                     </div>
@@ -80,7 +72,7 @@ ViewTags::iniciarBloco("conteudo");
                 <input class="btn btn-white btn-voltar" type="button" class="btn btn-white" value="Voltar" />
             </div>
             <div style="float:right">
-                <input type="submit" class="btn btn-primary" value="Alterar" />
+                <input type="submit" class="btn btn-primary" value="Cadastrar" />
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <?php 
 
-namespace senac\lavajato\utils\dados;
+namespace senac\framework\utils;
 
 class DadosUtil {
 
@@ -21,6 +21,13 @@ class DadosUtil {
         }
 
         return $classeDestino;
+    }
+
+    public static function mapearClasseArray($array) {
+        if(!isset($array) || $array == null || empty($array))
+            return null;
+            
+        return (object) $array;
     }
 }
 

@@ -15,6 +15,7 @@ class AppConfig extends Config {
         self::$caminhoDasViews = getcwd() . "\app\\views\\";
         self::$caminhoDasControllers = getcwd() . "\app\\controllers\\";
         self::$namespaceDasControllers = "senac\\lavajato\\controllers\\";
+        self::$caminhoDaSessao = getcwd() . "\\session";
 
         self::$versao = "1.0";
 

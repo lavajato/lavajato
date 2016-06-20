@@ -3,6 +3,7 @@
 namespace senac\framework;
 
 use senac\framework\Config;
+use senac\framework\utils\DadosUtil;
 
 class Rotas {
     private $url;
@@ -10,10 +11,11 @@ class Rotas {
     private $nomeDaControllerAtual;
 
     public function __construct() {
+        $this->metodoHttp = $_SERVER["REQUEST_METHOD"];
         $this->url = explode("/", $_REQUEST["url"]);
     }
 
-    public function mapearRotas($controllerPadrao, $actionPadrao) {
+    public function interceptarRotas($controllerPadrao, $actionPadrao) {
         if (count($this->url) > 0) {
             if (empty($this->url[0])) {
                 $nomeDaController = $controllerPadrao;
@@ -35,8 +37,15 @@ class Rotas {
 
         $params = array();
 
-        for($i = 2; $i < count($this->url); $i++) {
-            array_push($params, $this->url[$i]);
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            if(!empty("POST")) {
+                $params[] = DadosUtil::mapearClasseArray($_POST);
+            }
+        }
+        else {
+            for($i = 2; $i < count($this->url); $i++) {
+                array_push($params, $this->url[$i]);
+            }
         }
 
         require_once Config::$caminhoDasControllers  . $nomeDaController . "Controller.php";
@@ -48,6 +57,9 @@ class Rotas {
             if (method_exists($controller, $this->nomeDaActionAtual)) {
                 $r = new \ReflectionMethod($this->nomeDaControllerAtual, $this->nomeDaActionAtual);
                 $parametrosDaAction = $r->getParameters();
+
+                session_save_path(Config::$caminhoDaSessao);
+                session_start();
 
                 $r->invokeArgs($controller, $params);
             } else {
